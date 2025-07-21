@@ -1,0 +1,5 @@
+# Some general folders and files to exclude
+.venv
+.idea
+.env
+*.log*
