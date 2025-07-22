@@ -18,6 +18,9 @@ def extract_and_decode_arguments(xml_path: str, output_folder: str):
     # Create an output_folder if needed
     Path(output_folder).mkdir(parents=True, exist_ok=True)
 
+    # Collect all commands so we can write them to a single file
+    all_commands = []
+
     # Loop through all commands and decode them
     for idx, blob in enumerate(base64_blobs, 1):
         try:
@@ -40,12 +43,20 @@ def extract_and_decode_arguments(xml_path: str, output_folder: str):
             else:
                 command_only = "[Could not extract command]"
 
-            out_path = Path(output_folder) / f"command_{idx:02}.txt"
-            out_path.write_text(command_only, encoding="utf-8")
+            # Store all commands
+            all_commands.append(f"# Command: {idx:02}:\n{command_only}\n")
+            # Create a file per command
+            # out_path = Path(output_folder) / f"command_{idx:02}.txt"
+            # out_path.write_text(command_only, encoding="utf-8")
 
             print(f"[+] Extracted and saved command_{idx:02}.txt")
         except Exception as e:
             print(f"[!] Failed to decode blob {idx}: {e}")
+
+    # Write all commands to a single file
+    all_cmds_path = Path(output_folder) / "all_commands.txt"
+    all_cmds_path.write_text("\n".join(all_commands), encoding="utf-8")
+    print(f"[+] All commands saved to all_commands.txt")
 
 # Usage extract_cmds.py winrm_decrypted.xml decoded_commands
 if len(sys.argv) != 3:
