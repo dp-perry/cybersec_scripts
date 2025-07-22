@@ -1,18 +1,13 @@
 # PyModbus attack scripts
-These scripts are updated versions of those originally shared by TryHackMe in their Attacking ICS 1 room.
-These scripts work with pymobus==3.9.2 as well as the lab. The originals can be found in the /original folder as a reference.
-
-Also added is an extra check to make sure the correct arguments are given, 
-this helps people new to python with how to use the script.
+Example scripts for attacking the Virtuaplant in the TryHackMe Attacking ICS 2 room
+These scripts work with pymobus==3.9.2 as well as the lab.
 
 **Usage**
 ```bash
 python3 discovery.py ip_address
 python3 set_registry.py ip_address registry value
+python3 attack_oil_tank.py ip_address
 ```
-
-A new script is *discover_to_file.py*, the lab can be unstable making it crash and losing the register data.
-This file will write the register data to a file for later reference.
 
 ### Creating a virtual enviroment
 I personally like to create a virtual environment for projects to keep packages contained to a single project.
