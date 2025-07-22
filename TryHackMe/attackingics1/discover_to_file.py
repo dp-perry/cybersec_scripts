@@ -3,7 +3,7 @@
 # Modified version of the TryHackMe Modbus discovery.py file
 # This version uses pymodbus 3.2 instead of 1.52
 # This version writes the output both to a file and the console,
-# the virtualplant can be unstable making it difficult to get a full log.
+# the virtuaplant can be unstable making it difficult to get a full log.
 
 import sys
 import time
@@ -11,7 +11,7 @@ from pymodbus.client import ModbusTcpClient
 
 if len(sys.argv) != 2:
     print("Error: Incorrect arguments given")
-    print("Usage: ./discovery.py ip_address")
+    print("Usage: ./discover_to_file.py ip_address")
     sys.exit()
 
 ip = sys.argv[1]
