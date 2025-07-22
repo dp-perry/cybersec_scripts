@@ -3,8 +3,10 @@ Used to extract commands send through WinRM or another WS-Management service.
 Requires files to be decrypted first.
 
 ### Usage
-```python
-extract_cmds.py winrm_decrypted.xml decoded_commands
+```bash
+python3 extract_cmds.py winrm_decrypted.xml decoded_commands
+# Or
+py extract_cmds.py winrm_decrypted.xml decoded_commands
  ```
 
 
